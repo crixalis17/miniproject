@@ -1,0 +1,1 @@
+This folder consists of Frontend part of the project.

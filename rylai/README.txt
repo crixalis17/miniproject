@@ -1,0 +1,1 @@
+This folder consists of Web Scraping part of the project.

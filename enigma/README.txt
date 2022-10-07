@@ -1,0 +1,1 @@
+This folder consists of Machine Learning part of the project.
