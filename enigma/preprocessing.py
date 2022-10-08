@@ -4,8 +4,7 @@ import pandas as pd
 import re , string
 from transformers import BertTokenizerFast
 from transformers import TFBertModel
-from transformers import RobertaTokenizerFast
-from transformers import TFRobertaModel
+
 
 #keras
 #import tensorflow as tf
