@@ -9,7 +9,7 @@ from transformers import BertTokenizerFast
 from transformers import TFBertModel
 from bert_tokenizer import tokenize
 
-df = pd.read_csv(r'C:\Users\Asus\Documents\miniproject\dataset\Corona_NLP_test_saved.csv')
+df = pd.read_csv(r'C:\Users\Asus\Documents\miniproject\files\output_files\tweets_after_preprocessing.csv')
 input_values = df['text_clean'].values
 
 MAX_LEN=128
@@ -19,10 +19,13 @@ new_model = tf.keras.models.load_model(r'C:\Users\Asus\Documents\miniproject\eni
 example_input = ['You are the worst person i have ever seen',
                 'you seem normal',
                 'I really like the way you speak']
-example_input_ids, example_attention_masks = tokenize(example_input, MAX_LEN)
-result_bert = new_model.predict([example_input_ids,example_attention_masks])
-print(result_bert)
-print('\n\n')
+
+input_ids, attention_masks = tokenize(input_values, MAX_LEN)
+result_bert = new_model.predict([input_ids, attention_masks])
+print("SCORE : \n")
+for j in range(len(result_bert)):
+  print(max(result_bert[j])*100)
+print('\n')
 oplabels = ['Bullying','Not Bullying']
 
 y_pred_bert =  np.zeros_like(result_bert)

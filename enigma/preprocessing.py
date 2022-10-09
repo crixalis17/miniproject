@@ -6,14 +6,10 @@ from transformers import BertTokenizerFast
 from transformers import TFBertModel
 
 
-#keras
-#import tensorflow as tf
-#from tensorflow import keras
 
+df = pd.read_csv(r'C:\Users\Asus\Documents\miniproject\files\input_files\both_tweets.csv',encoding='ISO-8859-1')
+df = df[['OriginalTweets']]
 
-df = pd.read_csv(r'C:\Users\Asus\Documents\miniproject\dataset\Corona_NLP_test.csv',encoding='ISO-8859-1')
-df = df[['OriginalTweet']]
-df=df.head(10)
 
 
 #Remove punctuations, links, mentions and \r\n new line characters
@@ -47,7 +43,7 @@ def remove_mult_spaces(text): # remove multiple spaces
 
 
 texts_new = []
-for t in df.OriginalTweet:
+for t in df.OriginalTweets:
     texts_new.append(remove_mult_spaces(filter_chars(clean_hashtags(strip_all_entities(t)))))
 
 df['text_clean'] = texts_new
@@ -61,7 +57,7 @@ for text in df.text_clean:
 df['text_len'] = text_len
 df = df[df['text_len'] > 4] 
 
-df = df.sample(frac=1).reset_index(drop=True)
+
 
 tokenizer = BertTokenizerFast.from_pretrained('bert-base-uncased')
 
@@ -75,5 +71,6 @@ df['token_lens'] = token_lens
 df = df[df['token_lens'] < 80]
  
 df = df[['text_clean']]
-df.to_csv(r'C:\Users\Asus\Documents\miniproject\dataset\Corona_NLP_test_saved.csv')
+
+df.to_csv(r'C:\Users\Asus\Documents\miniproject\files\output_files\tweets_after_preprocessing.csv')
 
