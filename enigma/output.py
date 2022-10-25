@@ -14,7 +14,7 @@ input_values = df['text_clean'].values
 
 MAX_LEN=128
 #input_ids, attention_masks = tokenize(input_values, MAX_LEN)
-
+print("LOADING BERT MODEL")
 new_model = tf.keras.models.load_model(r'C:\Users\Asus\Documents\miniproject\enigma\my_model')
 example_input = ['You are the worst person i have ever seen',
                 'you seem normal',
