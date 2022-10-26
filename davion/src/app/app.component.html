@@ -330,19 +330,54 @@
   <input #box (keyup.enter)="onEnter(box.value)" onfocus="this.value=''">
   <div style="flex-direction: row">
     <button (click)="onEnter(box.value)" mat-flat-button color="primary">Submit</button>
-    <button (click)="box.value=''" mat-flat-button color="primary">Clear</button>
+    {{'\t'}}
+    <button (click)="box.value=''; toggle();"  mat-flat-button color="primary">Clear</button>
   </div>
   <p>{{value}}</p>
 
+  <ng-container *ngIf="show">
+
+  <table id="mytable">
+    <tr>
+      <td>{{'Profile:'}}</td>
+      <td><embed src="assets/prof.png"></td>
+    </tr>
+    <tr>
+      <td>{{'Name:'}}</td>
+      <td>{{ name1 }}</td>
+    </tr>
+    <tr>
+      <td>{{'No Of Tweets:'}}</td>
+      <td>{{ no_of_tweets }}</td>
+    </tr>
+    <tr>
+      <td>{{'Bullying:'}}</td>
+      <td>{{ bullying }}</td>
+    </tr>
+    <tr>
+      <td>{{'Bullying Percentage:'}}</td>
+      <td>{{ percentage_bully+'%' }}</td>
+    </tr>
+  </table>
+  </ng-container>
+
+
 
 </div>
+<script>
+  let toggle = button => {
+    let element = document.getElementById("mytable");
+    let hidden = element.getAttribute("hidden");
 
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-<!-- * * * * * * * * * * * The content above * * * * * * * * * * * -->
-<!-- * * * * * * * * * * is only a placeholder * * * * * * * * * * -->
-<!-- * * * * * * * * * * and can be replaced. * * * * * * * * * * * -->
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-<!-- * * * * * * * * * * End of Placeholder * * * * * * * * * * * -->
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
+    if (hidden) {
+      element.removeAttribute("hidden");
+      button.innerText = "Hide table";
+    } else {
+      element.setAttribute("hidden", "hidden");
+      button.innerText = "Show table";
+    }
+  }
+</script>
+
 
 <router-outlet></router-outlet>
