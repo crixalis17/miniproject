@@ -1,14 +1,12 @@
 import { Component } from '@angular/core';
-import { MatFormFieldModule } from '@angular/material/form-field';
-import { MatInputModule } from '@angular/material/input';
-import {MatDialog} from "@angular/material/dialog";
-
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
 })
+
 export class AppComponent {
   title = 'app';
   value = '';
@@ -21,6 +19,32 @@ export class AppComponent {
   toggle() {
     this.show = !this.show;
   }
-
+  public userArray: User[] = [];
+  constructor(private http: HttpClient){
+    this.http.get('assets/data.csv', {responseType: 'text'})
+        .subscribe(
+            data => {
+              let csvToRowArray = data.split("\n");
+              for (let index = 1; index < csvToRowArray.length - 1; index++) {
+                let row = csvToRowArray[index].split(",");
+                this.userArray.push(new User( row[0],row[1], row[2]));
+              }
+              console.log(this.userArray[1].value);
+            },
+            error => {
+              console.log(error);
+            }
+        );
+  }
+}
+export class User{
+  id: String;
+  attr: String;
+  value: String;
+  constructor(name: String, bully: String,  percent: String){
+    this.id = name;
+    this.attr = bully;
+    this.value = percent;
+  }
 }
 

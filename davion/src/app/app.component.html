@@ -344,31 +344,28 @@
     </tr>
     <tr>
       <td>{{'Name:'}}</td>
-      <td>{{ name1 }}</td>
+      <td>{{ userArray[0].value }}</td>
     </tr>
     <tr>
       <td>{{'No Of Tweets:'}}</td>
-      <td>{{ no_of_tweets }}</td>
+      <td>{{ userArray[1].value }}</td>
     </tr>
     <tr>
       <td>{{'Bullying:'}}</td>
-      <td>{{ bullying }}</td>
+      <td>{{ userArray[2].value }}</td>
     </tr>
     <tr>
       <td>{{'Bullying Percentage:'}}</td>
-      <td>{{ percentage_bully+'%' }}</td>
+      <td>{{ userArray[3].value+'%' }}</td>
     </tr>
   </table>
   </ng-container>
-
-
-
+  
 </div>
 <script>
   let toggle = button => {
     let element = document.getElementById("mytable");
     let hidden = element.getAttribute("hidden");
-
     if (hidden) {
       element.removeAttribute("hidden");
       button.innerText = "Hide table";
@@ -378,6 +375,4 @@
     }
   }
 </script>
-
-
 <router-outlet></router-outlet>
