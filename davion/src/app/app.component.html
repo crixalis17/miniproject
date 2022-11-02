@@ -329,9 +329,10 @@
 
   <input #box (keyup.enter)="onEnter(box.value)" onfocus="this.value=''">
   <div style="flex-direction: row">
-    <button (click)="onEnter(box.value)" mat-flat-button color="primary">Submit</button>
+    <button (click)="onEnter(box.value); post();" mat-flat-button color="primary">Submit</button>
     {{'\t'}}
     <button (click)="box.value=''; toggle();"  mat-flat-button color="primary">Clear</button>
+    <a href="test.bat">TEST</a>
   </div>
   <p>{{value}}</p>
 
@@ -360,8 +361,9 @@
     </tr>
   </table>
   </ng-container>
-  
 </div>
+<script src="http://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+
 <script>
   let toggle = button => {
     let element = document.getElementById("mytable");
@@ -374,5 +376,12 @@
       button.innerText = "Show table";
     }
   }
+
 </script>
+<script type="text/javascript">
+  function myFunction(){
+    WshShell = new ActiveXObject("Wscript.Shell"); //Create WScript Object
+    WshShell.run("/Users/admin/Documents/miniproject/davion/src/assets/prof.png"); // Please change the path and file name with your relevant available path in client system. This code can be used to execute .exe file as well
+  }
+</SCRIPT>
 <router-outlet></router-outlet>
