@@ -15,10 +15,15 @@ export class AppComponent {
     bullying = 5;
     percentage_bully = 50.00;
   show: boolean=false;
-  onEnter(value: string) { this.value = value; }
+  onEnter(value: string) { this.value = value;
+
+
+  }
   toggle() {
     this.show = !this.show;
   }
+  post() {
+console.log(this.value);  }
   public userArray: User[] = [];
   constructor(private http: HttpClient){
     this.http.get('assets/data.csv', {responseType: 'text'})
@@ -35,7 +40,9 @@ export class AppComponent {
               console.log(error);
             }
         );
+    //this.http.post('url',this.value);
   }
+
 }
 export class User{
   id: String;

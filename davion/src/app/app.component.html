@@ -68,7 +68,7 @@
 
   .content {
     display: flex;
-    margin: 82px auto 32px;
+    margin: 60px auto 32px;
     padding: 0 16px;
     max-width: 960px;
     flex-direction: column;
@@ -324,24 +324,22 @@
     </svg>
   </a>
 </div>
+<body style="background-image: url('assets/12.png');min-height: 683px;background-size: cover">
+<div class="content" role="main" style="background-size: cover;width: 100%;height: 100%;" >
 
-<div class="content" role="main">
-
-  <input #box (keyup.enter)="onEnter(box.value)" onfocus="this.value=''">
-  <div style="flex-direction: row">
+  <input style="width: 300px;height: 100px" #box (keyup.enter)="onEnter(box.value)" onfocus="this.value=''">
+  <div style="flex-direction: row; padding-top: 50px;justify-content: space-between; width: 310px">
     <button (click)="onEnter(box.value); post();" mat-flat-button color="primary">Submit</button>
-    {{'\t'}}
-    <button (click)="box.value=''; toggle();"  mat-flat-button color="primary">Clear</button>
-    <a href="test.bat">TEST</a>
+    <button style="left: 175px" (click)="box.value=''; toggle();"  mat-flat-button color="primary">Clear</button>
   </div>
   <p>{{value}}</p>
 
   <ng-container *ngIf="show">
 
-  <table id="mytable">
+  <table id="mytable" style="font-size: large;padding-top: 10px;line-height: 40px;background: aliceblue">
     <tr>
       <td>{{'Profile:'}}</td>
-      <td><embed src="assets/prof.png"></td>
+      <td><embed src="assets/pro.png" [width]="100" [height]="100" ></td>
     </tr>
     <tr>
       <td>{{'Name:'}}</td>
@@ -362,6 +360,7 @@
   </table>
   </ng-container>
 </div>
+</body>
 <script src="http://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
 
 <script>
