@@ -4,7 +4,7 @@
 <style>
 body {
     text-align: center;
-    background-image: url("../davion/src/assets/12.png");
+    background-image: url('../static/12.png');
     background-size: cover;
     font-family: 'Albert Sans';
 
@@ -89,33 +89,19 @@ table {
    <div style="padding-top:60px; flex: auto; flex-direction: column">
        <div>
       <table style="border: 0px;text-align: left;" class="table">
-<!--         {% for key, value in result.items() %}-->
-<!--            <tr>-->
-<!--               <th> {{ key }} </th>-->
-<!--               <td> {{ value }} </td>-->
-<!--            </tr>-->
-<!--         {% endfor %}-->
-
          <tr>
             <th>Profile:</th>
-            <td><embed src="../davion/src/assets/pro.png" width="100px" height="100px"></td>
+            <td><embed src="../static/profile_pic.jpg" width="100px" height="100px"></td>
          </tr>
+         {% for key, value in result.items() %}
          <tr>
-            <th>Name:</th>
-            <td>Ramesh</td>
-         </tr><tr>
-         <th>No of Tweets:</th>
-         <td>10</td>
-      </tr><tr>
-         <th>Bullying:</th>
-         <td>5</td>
-      </tr><tr>
-         <th>Bullying Percentage:</th>
-         <td>50.00%</td>
-      </tr>
+           <th> {{ key }} </th>
+           <td> {{ value }} </td>
+        </tr>
+          {% endfor %}
       </table></div>
        <div>
-       <a href="index.html"><input type = "submit" value = "Home" class="submit"/></a>
+       <a href="/"><input type = "submit" value = "Home" class="submit"/></a>
        </div>
    </div>
    </body>

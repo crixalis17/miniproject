@@ -20,10 +20,10 @@ df_dict = {
 def bert_output(website_url): 
 	profile_name = webscrape(website_url)
 	preprocess_tweets()
-	final_output(profile_name,tokenize)
+	df_dict = final_output(profile_name,tokenize)
 	return df_dict
 
-@app.route('/')
+@app.route('/',methods = ['GET', 'POST'])
 def input():
     return render_template('index.html')
     

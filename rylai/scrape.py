@@ -54,7 +54,7 @@ def webscrape(website):
     profile_pic_click = WebDriverWait(driver, 20).until(EC.visibility_of_element_located((By.XPATH,"//*[@id='react-root']/div/div/div[2]/main/div/div/div/div/div/div[3]/div/div/div/div/div[1]/div[1]/div[2]/div/div[2]/div/a/div[4]/div"))).click()
     time.sleep(2)
     profile_pic = driver.find_element(By.XPATH,"//img[contains(@class,'css-9pa8cd')]").get_attribute('src')
-    urllib.request.urlretrieve(str(profile_pic),r"C:\Users\Asus\Documents\miniproject\files\output_files\profile_pic.jpg")
+    urllib.request.urlretrieve(str(profile_pic),r"C:\Users\Asus\Documents\miniproject\static\profile_pic.jpg")
 
     close_button_click = WebDriverWait(driver, 20).until(EC.visibility_of_element_located((By.XPATH,"//div[@role='button']"))).click()
 

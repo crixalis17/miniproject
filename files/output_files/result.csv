@@ -1,5 +1,5 @@
-,attr,values
-0,Name,HATEBOY_RAMESH R
-1,No_of_tweets,10
-2,bullying,8
-3,percentage,80.0
+,attr,Name,Number of Tweets,No. of Bullying Tweets,Percentage of Bullying
+0,Name,HATEBOY_RAMESH R,10,8,80.0
+1,No_of_tweets,HATEBOY_RAMESH R,10,8,80.0
+2,bullying,HATEBOY_RAMESH R,10,8,80.0
+3,percentage,HATEBOY_RAMESH R,10,8,80.0
